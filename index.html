@@ -139,6 +139,31 @@
                 opacity: 0;
             }
         }
+
+        /* Accordion styles for FAQ */
+        .accordion-item {
+            border-bottom: 1px solid #e2e8f0; /* gray-200 */
+        }
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            cursor: pointer;
+            font-weight: 600;
+            color: #1a202c; /* gray-900 */
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding-bottom: 0;
+            color: #4a5568; /* gray-700 */
+        }
+        .accordion-content.active {
+            max-height: 200px; /* Adjust as needed */
+            padding-bottom: 1rem;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -153,6 +178,8 @@
             <div class="flex flex-wrap justify-center space-x-4">
                 <a href="#about" class="text-gray-700 hover:text-gray-900 font-medium rounded-md p-2 hover:bg-gray-100 transition duration-300 transform hover:scale-105">About</a>
                 <a href="#services" class="text-gray-700 hover:text-gray-900 font-medium rounded-md p-2 hover:bg-gray-100 transition duration-300 transform hover:scale-105">Services</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-gray-900 font-medium rounded-md p-2 hover:bg-gray-100 transition duration-300 transform hover:scale-105">Testimonials</a>
+                <a href="#faq" class="text-gray-700 hover:text-gray-900 font-medium rounded-md p-2 hover:bg-gray-100 transition duration-300 transform hover:scale-105">FAQ</a>
                 <a href="#contact" class="text-gray-700 hover:text-gray-900 font-medium rounded-md p-2 hover:bg-gray-100 transition duration-300 transform hover:scale-105">Contact</a>
             </div>
         </nav>
@@ -191,6 +218,16 @@
                     <p>
                         Whether you are navigating complex criminal charges, intricate civil disputes, or seeking proactive legal advice for your personal or business matters, Adarsh AS is your trusted partner for reliable and results-driven legal assistance.
                     </p>
+                    <h3 class="text-2xl font-semibold text-gray-900 pt-4">Our Mission & Values</h3>
+                    <p>
+                        Our mission is to provide accessible, high-quality legal services with integrity and dedication. We are committed to upholding justice, ensuring fairness, and achieving the best possible outcomes for our clients. Our core values include:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 pl-4">
+                        <li>**Integrity:** Upholding the highest ethical standards in all our dealings.</li>
+                        <li>**Client Focus:** Prioritizing our clients' needs and providing personalized attention.</li>
+                        <li>**Excellence:** Striving for superior legal outcomes through diligent work and expertise.</li>
+                        <li>**Compassion:** Approaching every case with empathy and understanding.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -199,7 +236,7 @@
     <!-- Services Section -->
     <section id="services" class="py-16 md:py-24 bg-gray-50">
         <div class="container mx-auto px-4 max-w-6xl">
-            <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fade-in-up animation-delay-100">Our Expertise</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fade-in-up animation-delay-100">Our Expertise & Practice Areas</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <!-- Service Card 1: Criminal Law -->
                 <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-2 border border-gray-200 animate-fade-in-up animation-delay-200 glow-on-hover">
@@ -208,7 +245,7 @@
                     </div>
                     <h3 class="text-2xl font-semibold text-gray-900 mb-4 text-center">Criminal Law</h3>
                     <p class="text-gray-600 text-center">
-                        Providing robust defense and legal counsel for various criminal charges, ensuring fair trial and protection of rights.
+                        Providing robust defense and legal counsel for various criminal charges, including bail applications, anticipatory bail, trials, appeals, and revision petitions. We handle cases related to IPC, NDPS Act, POCSO Act, and other special laws.
                     </p>
                 </div>
 
@@ -219,7 +256,7 @@
                     </div>
                     <h3 class="text-2xl font-semibold text-gray-900 mb-4 text-center">Civil Litigation</h3>
                     <p class="text-gray-600 text-center">
-                        Expert representation in civil disputes, including property matters, contract disputes, and personal injury claims.
+                        Expert representation in civil disputes, including property matters, contract disputes, family law, succession, injunctions, and recovery suits. We represent clients in various civil courts and tribunals.
                     </p>
                 </div>
 
@@ -230,10 +267,129 @@
                     </div>
                     <h3 class="text-2xl font-semibold text-gray-900 mb-4 text-center">Legal Consultancy</h3>
                     <p class="text-gray-600 text-center">
-                        Proactive legal advice for individuals and businesses on compliance, contracts, and risk management.
+                        Proactive legal advice for individuals and businesses on compliance, contracts, property registration, legal notices, and general legal opinions. We assist in drafting legal documents and agreements.
                     </p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="py-16 md:py-24 bg-white shadow-inner">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fade-in-up animation-delay-100">Why Choose Adarsh AS?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="bg-blue-50 p-8 rounded-2xl shadow-md animate-fade-in-up animation-delay-200">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-4">Personalized Attention</h3>
+                    <p class="text-gray-700">Every client receives dedicated and personalized legal counsel tailored to their unique situation and goals.</p>
+                </div>
+                <div class="bg-blue-50 p-8 rounded-2xl shadow-md animate-fade-in-up animation-delay-300">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-4">Proven Track Record</h3>
+                    <p class="text-gray-700">A history of successful outcomes and satisfied clients across various complex legal cases.</p>
+                </div>
+                <div class="bg-blue-50 p-8 rounded-2xl shadow-md animate-fade-in-up animation-delay-400">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-4">Transparent Communication</h3>
+                    <p class="text-gray-700">We keep you informed at every step, ensuring clarity and understanding throughout the legal process.</p>
+                </div>
+                <div class="bg-blue-50 p-8 rounded-2xl shadow-md animate-fade-in-up animation-delay-500">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-4">Ethical Practice</h3>
+                    <p class="text-gray-700">Committed to the highest standards of legal ethics, integrity, and professional conduct.</p>
+                </div>
+                <div class="bg-blue-50 p-8 rounded-2xl shadow-md animate-fade-in-up animation-delay-600">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-4">Strategic Approach</h3>
+                    <p class="text-gray-700">Developing innovative and effective legal strategies to achieve favorable resolutions.</p>
+                </div>
+                <div class="bg-blue-50 p-8 rounded-2xl shadow-md animate-fade-in-up animation-delay-700">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-4">Accessibility</h3>
+                    <p class="text-gray-700">Easy to reach and responsive to your queries, providing timely support when you need it most.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fade-in-up animation-delay-100">Client Testimonials</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-white p-8 rounded-2xl shadow-xl animate-fade-in-up animation-delay-200">
+                    <p class="text-gray-700 italic mb-6">"Adarsh AS provided exceptional legal support during a very challenging time. His expertise in criminal law and dedication to my case were truly remarkable. I highly recommend his services."</p>
+                    <p class="font-semibold text-gray-900">- Client A</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl animate-fade-in-up animation-delay-300">
+                    <p class="text-gray-700 italic mb-6">"For civil litigation, Adarsh AS is the go-to lawyer. He handled my property dispute with utmost professionalism and achieved a favorable outcome. Very impressed with his meticulous approach."</p>
+                    <p class="font-semibold text-gray-900">- Client B</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl animate-fade-in-up animation-delay-400">
+                    <p class="text-gray-700 italic mb-6">"The legal consultancy I received from Adarsh AS was invaluable for my business. His advice was clear, practical, and helped me navigate complex legal requirements with ease."</p>
+                    <p class="font-semibold text-gray-900">- Client C</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl animate-fade-in-up animation-delay-500">
+                    <p class="text-gray-700 italic mb-6">"Professional, knowledgeable, and genuinely caring. Adarsh AS made a difficult legal process much smoother. I felt confident and well-represented throughout."</p>
+                    <p class="font-semibold text-gray-900">- Client D</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 md:py-24 bg-white shadow-inner">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fade-in-up animation-delay-100">Frequently Asked Questions</h2>
+            <div class="space-y-4 animate-fade-in-up animation-delay-200">
+                <div class="accordion-item rounded-xl p-4 shadow-sm bg-gray-50">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>What are your primary areas of practice?</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="pt-4">I specialize in Criminal Law, Civil Litigation, and Legal Consultancy. This includes a wide range of cases from criminal defense to property disputes and business legal advice.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-xl p-4 shadow-sm bg-gray-50">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>How can I schedule a consultation?</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="pt-4">You can schedule a consultation by filling out the contact form on this website, sending an email to adarshathimattathill@gmail.com, or calling me directly at +91 123456789.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-xl p-4 shadow-sm bg-gray-50">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>What should I bring to my first consultation?</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="pt-4">Please bring any relevant documents, correspondence, or information pertaining to your legal matter. This will help in a more efficient and thorough assessment of your case.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item rounded-xl p-4 shadow-sm bg-gray-50">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Do you offer services outside of Kerala?</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="pt-4">While my primary practice is in the High Court of Kerala, I can offer legal consultancy for matters outside Kerala depending on the nature of the case. Please contact me to discuss your specific needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section (Mid-page) -->
+    <section class="py-16 md:py-24 bg-blue-600 text-white text-center">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-fade-in-up animation-delay-100">Ready to Discuss Your Legal Needs?</h2>
+            <p class="text-lg md:text-xl mb-8 animate-fade-in-up animation-delay-200">
+                Don't hesitate to reach out for expert legal guidance and representation.
+            </p>
+            <a href="#contact" class="bg-white text-blue-600 hover:bg-gray-200 px-10 py-4 rounded-full font-semibold text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-xl animate-fade-in-up animation-delay-300 glow-on-hover">
+                Contact Adarsh AS Today
+            </a>
         </div>
     </section>
 
@@ -368,6 +524,29 @@
                 particlesContainer.appendChild(particle);
             }
         });
+
+        // Accordion functionality for FAQ section
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('svg');
+
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                // Close all other open accordions
+                document.querySelectorAll('.accordion-content.active').forEach(item => {
+                    item.classList.remove('active');
+                    item.style.maxHeight = null;
+                    item.previousElementSibling.querySelector('svg').style.transform = 'rotate(0deg)';
+                });
+
+                content.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
     </script>
 </body>
 </html>
