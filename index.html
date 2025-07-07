@@ -12,6 +12,8 @@
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
+            position: relative; /* Needed for absolute positioning of particles */
+            overflow-x: hidden; /* Prevent horizontal scroll due to particles */
         }
         /* Custom scroll-to-top button styling */
         #scrollToTopBtn {
@@ -86,9 +88,61 @@
             position: relative;
             z-index: 2; /* Ensure text is above the overlay */
         }
+
+        /* Custom glow effect for buttons/cards */
+        .glow-on-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .glow-on-hover:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.2); /* More prominent shadow/glow */
+            border-color: rgba(0, 0, 0, 0.1); /* Subtle border change */
+        }
+
+        /* Flying Lights Effect */
+        #particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Allow clicks to pass through */
+            z-index: 0; /* Ensure it's behind content but above body background */
+            overflow: hidden; /* Prevent particles from causing scrollbars */
+        }
+
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            opacity: 0;
+            animation: particle-fly linear infinite;
+        }
+
+        @keyframes particle-fly {
+            0% {
+                transform: translate(var(--x-start), var(--y-start)) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translate(var(--x-mid), var(--y-mid)) scale(var(--scale-mid));
+            }
+            90% {
+                opacity: 1;
+                transform: translate(var(--x-end), var(--y-end)) scale(var(--scale-end));
+            }
+            100% {
+                transform: translate(var(--x-end), var(--y-end)) scale(0);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
+
+    <!-- Particles Container -->
+    <div id="particles-container"></div>
 
     <!-- Header -->
     <header class="bg-white shadow-sm py-4 px-6 fixed w-full z-10 top-0">
@@ -111,7 +165,7 @@
             <p class="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in-up animation-delay-200">
                 Professional Lawyer Specializing in Criminal Law, Civil Litigation, and Legal Consultancy.
             </p>
-            <a href="#contact" class="bg-white text-gray-900 hover:bg-gray-200 px-8 py-3 rounded-xl font-semibold text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg animate-fade-in-up animation-delay-300">
+            <a href="#contact" class="bg-white text-gray-900 hover:bg-gray-200 px-8 py-3 rounded-xl font-semibold text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg animate-fade-in-up animation-delay-300 glow-on-hover">
                 Get in Touch
             </a>
         </div>
@@ -134,7 +188,7 @@
                     </p>
                 </div>
                 <div class="flex justify-center animate-fade-in-up animation-delay-300">
-                    <img src="1679326948325.jpeg" alt="Adarsh AS Profile" class="rounded-xl shadow-lg w-full max-w-sm">
+                    <img src="1679326948325.jpeg" alt="Adarsh AS Profile" class="rounded-xl shadow-lg w-full max-w-sm glow-on-hover">
                 </div>
             </div>
         </div>
@@ -146,7 +200,7 @@
             <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12 animate-fade-in-up animation-delay-100">Our Expertise</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Service Card 1: Criminal Law -->
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-100 animate-fade-in-up animation-delay-200">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-100 animate-fade-in-up animation-delay-200 glow-on-hover">
                     <div class="flex items-center justify-center w-16 h-16 bg-gray-100 text-gray-800 rounded-full mb-6 mx-auto">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.001 12.001 0 002 12c0 2.757 1.125 5.22 2.938 7.073A11.985 11.985 0 0012 22c2.757 0 5.22-1.125 7.073-2.938A11.985 11.985 0 0022 12c0-2.757-1.125-5.22-2.938-7.073z"></path></svg>
                     </div>
@@ -157,7 +211,7 @@
                 </div>
 
                 <!-- Service Card 2: Civil Litigation -->
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-100 animate-fade-in-up animation-delay-300">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-100 animate-fade-in-up animation-delay-300 glow-on-hover">
                     <div class="flex items-center justify-center w-16 h-16 bg-gray-100 text-gray-800 rounded-full mb-6 mx-auto">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.747 0-3.332.477-4.5 1.253"></path></svg>
                     </div>
@@ -168,7 +222,7 @@
                 </div>
 
                 <!-- Service Card 3: Legal Consultancy -->
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-100 animate-fade-in-up animation-delay-400">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-100 animate-fade-in-up animation-delay-400 glow-on-hover">
                     <div class="flex items-center justify-center w-16 h-16 bg-gray-100 text-gray-800 rounded-full mb-6 mx-auto">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     </div>
@@ -205,7 +259,7 @@
                 </div>
 
                 <!-- Contact Form -->
-                <form class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 animate-fade-in-up animation-delay-300">
+                <form class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 animate-fade-in-up animation-delay-300 glow-on-hover">
                     <div class="mb-5">
                         <label for="name" class="block text-gray-700 text-sm font-medium mb-2">Name</label>
                         <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500" placeholder="Your Name" required>
@@ -218,7 +272,7 @@
                         <label for="message" class="block text-gray-700 text-sm font-medium mb-2">Message</label>
                         <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500" placeholder="Your message..." required></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-gray-800 text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-900 transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
+                    <button type="submit" class="w-full bg-gray-800 text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-900 transition duration-300 ease-in-out transform hover:scale-105 shadow-md glow-on-hover">
                         Send Message
                     </button>
                 </form>
@@ -262,6 +316,56 @@
                 behavior: 'smooth'
             });
         }
+
+        // Flying Lights Effect JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            const particlesContainer = document.getElementById('particles-container');
+            const numberOfParticles = 50; // Adjust as needed for density
+
+            for (let i = 0; i < numberOfParticles; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                // Random size for particles
+                const size = Math.random() * 3 + 1; // 1px to 4px
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+
+                // Random start position (can be outside viewport)
+                const startX = Math.random() * window.innerWidth * 1.5 - (window.innerWidth * 0.25);
+                const startY = Math.random() * window.innerHeight * 1.5 - (window.innerHeight * 0.25);
+
+                // Random end position (can be outside viewport)
+                const endX = Math.random() * window.innerWidth * 1.5 - (window.innerWidth * 0.25);
+                const endY = Math.random() * window.innerHeight * 1.5 - (window.innerHeight * 0.25);
+
+                // Random mid position for smoother curve
+                const midX = (startX + endX) / 2 + (Math.random() - 0.5) * 200;
+                const midY = (startY + endY) / 2 + (Math.random() - 0.5) * 200;
+
+                // Random scale for mid and end
+                const scaleMid = Math.random() * 0.5 + 0.5; // 0.5 to 1.0
+                const scaleEnd = Math.random() * 0.5 + 0.2; // 0.2 to 0.7
+
+                // Random animation duration and delay
+                const duration = Math.random() * 15 + 10; // 10s to 25s
+                const delay = Math.random() * 10; // 0s to 10s
+
+                particle.style.setProperty('--x-start', `${startX}px`);
+                particle.style.setProperty('--y-start', `${startY}px`);
+                particle.style.setProperty('--x-mid', `${midX}px`);
+                particle.style.setProperty('--y-mid', `${midY}px`);
+                particle.style.setProperty('--x-end', `${endX}px`);
+                particle.style.setProperty('--y-end', `${endY}px`);
+                particle.style.setProperty('--scale-mid', scaleMid);
+                particle.style.setProperty('--scale-end', scaleEnd);
+
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${delay}s`;
+
+                particlesContainer.appendChild(particle);
+            }
+        });
     </script>
 </body>
 </html>
